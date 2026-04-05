@@ -1,0 +1,5 @@
+C:/Users/haris/OneDrive/Desktop/Guvi/Projects/Multiclaass_image_classification/artifacts-20260115T074246Z-3-001.zip filter=lfs diff=lfs merge=lfs -text
+C:/Users/haris/OneDrive/Desktop/Guvi/Projects/Multiclaass_image_classification/artifacts/models/baseline.h5 filter=lfs diff=lfs merge=lfs -text
+C:/Users/haris/OneDrive/Desktop/Guvi/Projects/Multiclaass_image_classification/artifacts/models/resnet.h5 filter=lfs diff=lfs merge=lfs -text
+*.h5 filter=lfs diff=lfs merge=lfs -text
+*.zip filter=lfs diff=lfs merge=lfs -text
