@@ -1,0 +1,22 @@
+artifact_path: file:///C:/Users/haris/OneDrive/Desktop/Guvi/Projects/final_projects/chest_x_ray_classification/models/mlruns/554007006706194544/models/m-3c18e8871ff94813b205b9a86d5b90cf/artifacts
+flavors:
+  python_function:
+    data: data
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.tensorflow
+    python_version: 3.12.10
+  tensorflow:
+    code: null
+    data: data
+    keras_version: 2.21.0
+    model_type: keras
+    save_format: tf
+mlflow_version: 3.4.0
+model_id: m-3c18e8871ff94813b205b9a86d5b90cf
+model_size_bytes: 30900921
+model_uuid: m-3c18e8871ff94813b205b9a86d5b90cf
+prompts: null
+run_id: ee901a3032284b45a117ceb873f32000
+utc_time_created: '2026-05-26 05:05:48.069160'
