@@ -7,6 +7,9 @@ import mlflow.tensorflow
 import numpy as np
 import tensorflow as tf
 
+import seaborn as sns
+import matplotlib.pyplot as plt
+
 from tensorflow.keras.applications import EfficientNetB0
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import (
@@ -278,6 +281,12 @@ with mlflow.start_run() as run:
     y_pred = np.argmax(predictions, axis=1)
     y_true = test_generator.classes
 
+    # =====================================================
+    # CONFUSION MATRIX
+    # =====================================================
+
+    cm = confusion_matrix(y_true, y_pred)
+
     report = classification_report(
                                     y_true,
                                     y_pred,
@@ -315,6 +324,34 @@ with mlflow.start_run() as run:
     mlflow.log_metric("recall", recall)
     mlflow.log_metric("f1_score", f1_score)
     mlflow.log_metric("roc_auc", roc_auc)
+
+    # =====================================================
+    # PLOT CONFUSION MATRIX
+    # =====================================================
+
+    plt.figure(figsize=(8, 6))
+
+    sns.heatmap(
+                    cm,
+                    annot=True,
+                    fmt='d',
+                    cmap='Blues',
+                    xticklabels=class_names,
+                    yticklabels=class_names
+                )
+
+    plt.xlabel("Predicted Labels")
+    plt.ylabel("True Labels")
+    plt.title("Confusion Matrix")
+
+    plt.tight_layout()
+
+    # Save confusion matrix
+    plt.savefig("models/confusion_matrix.png")
+
+    # plt.show()
+
+    mlflow.log_artifact("models/confusion_matrix.png")
 
     # =====================================================
     # SAVE MODEL
